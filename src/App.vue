@@ -1,19 +1,22 @@
 <template>
   <div class="">
-    <ButtonMake />
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div class="mx-20 my-5">
+      <ButtonMake msg='Заказать в Москву' bgColor='bg-indigo-500'/>
+      <ButtonMake msg='Заказать в Санкт-Петербург' bgColor='bg-black'/>
+    </div>
+    <FeedBack />
   </div>
 </template>
 
 <script>
 import ButtonMake from './components/ButtonMake.vue'
+import FeedBack from './components/Feedback.vue'
 
 export default {
   name: 'App',
   components: {
-    ButtonMake
+    ButtonMake,
+    FeedBack
   }
 }
 </script>

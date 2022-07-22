@@ -1,17 +1,10 @@
 <template>
-  <div>
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    <button class="bg-sky-600 hover:bg-sky-700 ...">Заказать в Москву</button>
-  </div>
+  <button :class="`${bgColor} px-4 py-1.5 shadow-sm rounded-md text-white mx-2.5`">{{msg}}</button>
 </template>
 
 <script>
   export default {
     name: 'ButtonMake',
-    mounted () {
-      console.log(this.$store.state.count)
-    }
+    props: ['msg', 'bgColor'],
   }
 </script>
