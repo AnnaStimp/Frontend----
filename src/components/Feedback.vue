@@ -35,6 +35,7 @@
 
 <script>
   import Inputmask from 'inputmask';
+  import axios from 'axios';
 
   export default {
     name: 'FeedBack',
@@ -91,12 +92,9 @@
             city_id: this.$store.state.selectCity
           }
 
-          let response = await fetch('http://hh.autodrive-agency.ru/test-tasks/front/task7/', {
+          let response = await axios.post('http://hh.autodrive-agency.ru/test-tasks/front/task7/', {
             method: 'POST',
-            body: JSON.stringify(body),
-            headers: {
-              'Content-Type': 'application/json'
-            }
+            body: body
           });
 
           const data = await response;
