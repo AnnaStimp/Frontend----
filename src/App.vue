@@ -5,18 +5,21 @@
       <ButtonMake msg='Заказать в Санкт-Петербург' bgColor='bg-black' @click="clickButton(2)"/>
     </div>
     <FeedBack :class="{hidden: this.$store.state.statePopup}"/>
+    <FeedBackResult :class="{hidden: this.$store.state.stateResult}"/>
   </div>
 </template>
 
 <script>
 import ButtonMake from './components/ButtonMake.vue'
 import FeedBack from './components/Feedback.vue'
+import FeedBackResult from './components/FeedBackResult.vue'
 
 export default {
   name: 'App',
   components: {
     ButtonMake,
-    FeedBack
+    FeedBack,
+    FeedBackResult
   },
   methods: {
     clickButton(cityId) {

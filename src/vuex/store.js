@@ -4,13 +4,12 @@ const store = createStore({
   state () {
     return {
       selectCity: '',
-      statePopup: true
+      statePopup: true,
+      stateResult: true,
+      resHtml: ''
     }
   },
   mutations: {
-    increment (state) {
-      state.count++
-    }
   }
 })
 

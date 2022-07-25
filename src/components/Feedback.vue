@@ -1,8 +1,8 @@
 <template>
-  <div class="fixed z-1 min-w-full min-h-full top-0 left-0 flex justify-center items-center bg-gray-600 bg-opacity-75">
+  <div id="background" class="fixed z-1 min-w-full min-h-full top-0 left-0 flex justify-center items-center bg-gray-600 bg-opacity-75 p-2" @click="close($event.target)">
     <div class="shadow-sm bg-white pt-6 pr-7 pb-7 pl-6 rounded-lg">
       <h1 class="text-gray-900 font-medium text-2xl mb-5">Заказать звонок</h1>
-      <div class="flex text-gray-700 font-medium text-base mb-1">
+      <div class="flex flex-wrap text-gray-700 font-medium text-base mb-1">
         <div class="mr-5 flex flex-col">
           <p class="mb-1">Имя*</p>
           <input class="rounded-md border border-gray-300 py-2 px-3 outline-none" type="text" placeholder="Иван Иванов" v-model="name">
@@ -92,19 +92,33 @@
             city_id: this.$store.state.selectCity
           }
 
-          let response = await axios.post('http://hh.autodrive-agency.ru/test-tasks/front/task7/', {
-            method: 'POST',
-            body: body
-          });
-
+          let response = await axios.post('http://hh.autodrive-agency.ru/test-tasks/front/task-7/', body);
           const data = await response;
-          console.log(data)
-        }
 
-        console.log(this.name, this.phone, this.email, this.$store.state.selectCity)
+          if (data.status == 200) {
+            this.$store.state.resHtml = data.data
+            this.$store.state.stateResult = false
+            this.$store.state.statePopup = true
+            this.name = ''
+            this.phone = ''
+            this.email = ''
+            this.error = []
+            this.$store.state.selectCity = ''
+          }
+        }
       },
       chooseCity(id) {
         this.$store.state.selectCity = id
+      }, 
+      close(event) {
+        if (event.id == 'background') {
+          this.$store.state.statePopup = true
+          this.name = ''
+          this.phone = ''
+          this.email = ''
+          this.error = []
+          this.$store.state.selectCity = ''
+        }
       }
     }
   }
