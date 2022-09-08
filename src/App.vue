@@ -1,8 +1,8 @@
 <template>
   <div class="">
     <div class="mx-20 my-5">
-      <ButtonMake msg='Заказать в Москву' bgColor='bg-indigo-500' @click="clickButton(1)"/>
-      <ButtonMake msg='Заказать в Санкт-Петербург' bgColor='bg-black' @click="clickButton(2)"/>
+      <ButtonMake msg='Заказать в Москву' bgColor='bg-blue-500' @click="clickButton(1)"/>
+      <ButtonMake msg='Заказать в Санкт-Петербург' bgColor='bg-green-700' @click="clickButton(2)"/>
     </div>
     <FeedBack :class="{hidden: this.$store.state.statePopup}"/>
     <FeedBackResult :class="{hidden: this.$store.state.stateResult}"/>
